@@ -6,6 +6,7 @@ import math
 # If the measure of angle A (in degrees) and side length a (the side opposite angle A) are known, and the measure
 # (in degrees) of another angle, angle C, for example, is known, then the user can enter that information to get the
 # length of side c and the measure of angle B.
+# Author: Angelle Leger
 ###
 
 global on
