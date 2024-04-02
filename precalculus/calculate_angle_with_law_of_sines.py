@@ -5,6 +5,7 @@ import math
 # Law of Sines. In the Law of Sines, for a triangle, sin A/a = sin B/b = sin C/c.
 # If the measure of angle A (in degrees) and side length a (the side opposite angle A) are known, and length of another
 # side, say side c, for example, is known, then the user can enter that information to get the measure of angle C.
+# Author: Angelle Leger
 ###
 
 
