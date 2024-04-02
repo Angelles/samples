@@ -7,6 +7,7 @@ import math
 # side_a = math.sqrt((b**2) + (c**2)-2 * (b * c) * math.cos(math.radians(a_angle)))
 # The formulas to get the length of sides b and c follow a similar pattern. This program allows the user to get the
 # length of sides a, b, or c.
+# Author: Angelle Leger
 ###
 
 # VARIABLES
