@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
-
+// consider using pointers for all attribute arrays
 struct Person {
-	char firstName[];
-	char lastName[];
+	char firstName[30];
+	char lastName[30];
 };
 
 struct Address {
@@ -32,14 +32,14 @@ void menu(){
 		int option;
 		scanf("%d", &option);
 		if (option == 0){
-			printf("Goodbye!");
+			printf("Goodbye!\n");
 			exit(0);
 		}
 	}
 }
 // create new entry and write to file - option 1
 // read entry - option 2, then select an option to read
-// update entry - option 3, which is option 2 then select an option to update
+// update entry - option 3, which is option 2 then select an option to update. should include choosing attributes only
 // delete entry - option 4, which is option 2 then select an option to delete
 int main(){
 	menu();
