@@ -58,8 +58,10 @@ void create(){
 	file = fopen("phonebook.csv", "w");
 	printf("First name:\n");
 	scanf("%s,", newEntry.person.firstName);
+	fprintf(file, newEntry.person.firstName);
 	printf("Last name:\n");
 	scanf("%s,", newEntry.person.lastName);
+	fprintf(file, newEntry.person.lastName);
 	printf("What do you want to enter for %s?\n", newEntry.person.firstName);
 	printf("Enter the number for one of the following:\n1 - Phone number\n2 - Email address\n3 - Address\n");
 	int entryOption;
@@ -68,10 +70,12 @@ void create(){
 		case 1:
 			printf("Phone number:\n");
 			scanf("%s,", newEntry.phone);
+			fprintf(file, newEntry.phone);
 			break;
 		case 2:
 			printf("Email address:\n");
 			scanf("%s,", newEntry.email);
+			fprintf(file, newEntry.email);
 			break;
 		case 3:
 			printf("Address number:\n");
@@ -94,6 +98,7 @@ void create(){
 		default:
 			printf("Phone number:\n");
 			scanf("%s,", newEntry.phone);
+			fprintf(file, newEntry.phone);
 	}
 	fclose(file);
 }
