@@ -77,7 +77,7 @@ void create(){
 			scanf("%s,", newEntry.email);
 			fprintf(file, newEntry.email);
 			break;
-		case 3:
+		case 3: // add writing to file
 			printf("Address number:\n");
 			scanf("%d ", &(newEntry.address.buildingNumber));
 			printf("Street name:\n");
