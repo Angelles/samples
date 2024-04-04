@@ -2,7 +2,11 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
-void create(); // prototype
+// prototypes
+void create(); 
+void read();
+void update(struct Entry);
+void delete(struct Entry);
 
 // consider using pointers for all attribute arrays
 struct Person {
@@ -40,6 +44,9 @@ void menu(){
 			case 1:
 				create();
 				break;
+			// case 2:
+				// read();
+				// break;
 			case 0:
 				printf("Goodbye!\n");
 				exit(0);
@@ -56,7 +63,7 @@ void create(){
 	struct Entry newEntry;
 	FILE* file;
 	file = fopen("phonebook.csv", "w");
-	printf("First name:\n");
+	printf("First name:\n"); // consider generating a unique id for each entry to help with reading, updating, and deleting
 	scanf("%s", newEntry.person.firstName);
 	fprintf(file, "%s,", newEntry.person.firstName);
 	printf("Last name:\n");
@@ -111,6 +118,14 @@ void create(){
 	fclose(file);
 }
 // read entry - option 2, then select an option to read
+/* void read(){
+	// open file
+	// read and display first and last names from file...and ids?
+	// when the user enters the id for the option, read display the full entry
+	// close file
+	// print menu again, so the user can do more stuff or quit
+}
+*/
 // update entry - option 3, which is option 2 then select an option to update. should include choosing attributes only
 // delete entry - option 4, which is option 2 then select an option to delete
 int main(){
