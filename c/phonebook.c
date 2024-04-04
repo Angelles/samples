@@ -58,10 +58,10 @@ void create(){
 	file = fopen("phonebook.csv", "w");
 	printf("First name:\n");
 	scanf("%s,", newEntry.person.firstName);
-	fprintf(file, newEntry.person.firstName);
+	fprintf(file, "%s", newEntry.person.firstName);
 	printf("Last name:\n");
 	scanf("%s,", newEntry.person.lastName);
-	fprintf(file, newEntry.person.lastName);
+	fprintf(file, "%s", newEntry.person.lastName);
 	printf("What do you want to enter for %s?\n", newEntry.person.firstName);
 	printf("Enter the number for one of the following:\n1 - Phone number\n2 - Email address\n3 - Address\n");
 	int entryOption;
@@ -70,35 +70,43 @@ void create(){
 		case 1:
 			printf("Phone number:\n");
 			scanf("%s,", newEntry.phone);
-			fprintf(file, newEntry.phone);
+			fprintf(file, "%s", newEntry.phone);
 			break;
 		case 2:
 			printf("Email address:\n");
 			scanf("%s,", newEntry.email);
-			fprintf(file, newEntry.email);
+			fprintf(file, "%s", newEntry.email);
 			break;
 		case 3: // add writing to file
 			printf("Address number:\n");
 			scanf("%d ", &(newEntry.address.buildingNumber));
+			fprintf(file, "%d", newEntry.address.buildingNumber);
 			printf("Street name:\n");
 			scanf("%s ", newEntry.address.street);
+			fprintf(file, "%s", newEntry.address.street);
 			printf("Street type (i.e. Road, Avenue, Boulevard...):\n");
 			scanf("%s ", newEntry.address.postfix);
+			fprintf(file, "%s", newEntry.address.postfix);
 			printf("Enter a space and press enter if there is no apartment number or P.O. Box. Otherwise, enter the data.\n");
 			scanf("%s,", newEntry.address.poBoxOrApartmentNumber);
+			fprintf(file, "%s", newEntry.address.poBoxOrApartmentNumber);
 			printf("City or town:\n");
 			scanf("%s,", newEntry.address.city);
+			fprintf(file, "%s", newEntry.address.city);
 			printf("State:\n");
 			scanf("%s,", newEntry.address.state);
+			fprintf(file, "%s", newEntry.address.state);
 			printf("Postal code:\n");
 			scanf("%s,", newEntry.address.postalCode);
+			fprintf(file, "%s", newEntry.address.postalCode);
 			printf("Country:\n");
 			scanf("%s,", newEntry.address.country);
+			fprintf(file, "%s", newEntry.address.country);
 			break;
 		default:
 			printf("Phone number:\n");
 			scanf("%s,", newEntry.phone);
-			fprintf(file, newEntry.phone);
+			fprintf(file, "%s", newEntry.phone);
 	}
 	fclose(file);
 }
