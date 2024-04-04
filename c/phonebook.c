@@ -14,7 +14,7 @@ struct Address {
 	int buildingNumber; // just the number part
 	char street[30]; // street name
 	char postfix[20]; // avenue, road, street, etc.
-	char poBoxOrApartmentNumber[10];
+	char apartmentNumber[10];
 	char city[30];
 	char state[20];
 	char postalCode[11]; // includes postal codes (non-US) that include letters
@@ -57,11 +57,11 @@ void create(){
 	FILE* file;
 	file = fopen("phonebook.csv", "w");
 	printf("First name:\n");
-	scanf("%s,", newEntry.person.firstName);
-	fprintf(file, "%s", newEntry.person.firstName);
+	scanf("%s", newEntry.person.firstName);
+	fprintf(file, "%s,", newEntry.person.firstName);
 	printf("Last name:\n");
-	scanf("%s,", newEntry.person.lastName);
-	fprintf(file, "%s", newEntry.person.lastName);
+	scanf("%s", newEntry.person.lastName);
+	fprintf(file, "%s,", newEntry.person.lastName);
 	printf("What do you want to enter for %s?\n", newEntry.person.firstName);
 	printf("Enter the number for one of the following:\n1 - Phone number\n2 - Email address\n3 - Address\n");
 	int entryOption;
@@ -69,44 +69,44 @@ void create(){
 	switch (entryOption){
 		case 1:
 			printf("Phone number:\n");
-			scanf("%s,", newEntry.phone);
-			fprintf(file, "%s", newEntry.phone);
+			scanf("%s", newEntry.phone);
+			fprintf(file, "%s\n", newEntry.phone);
 			break;
 		case 2:
 			printf("Email address:\n");
-			scanf("%s,", newEntry.email);
-			fprintf(file, "%s", newEntry.email);
+			scanf("%s", newEntry.email);
+			fprintf(file, "%s\n", newEntry.email);
 			break;
 		case 3: // add writing to file
 			printf("Address number:\n");
-			scanf("%d ", &(newEntry.address.buildingNumber));
-			fprintf(file, "%d", newEntry.address.buildingNumber);
+			scanf("%d", &(newEntry.address.buildingNumber));
+			fprintf(file, "%d,", newEntry.address.buildingNumber);
 			printf("Street name:\n");
-			scanf("%s ", newEntry.address.street);
-			fprintf(file, "%s", newEntry.address.street);
+			scanf("%s", newEntry.address.street);
+			fprintf(file, "%s,", newEntry.address.street); // Need to consider street names that contain spaces
 			printf("Street type (i.e. Road, Avenue, Boulevard...):\n");
-			scanf("%s ", newEntry.address.postfix);
-			fprintf(file, "%s", newEntry.address.postfix);
-			printf("Enter a space and press enter if there is no apartment number or P.O. Box. Otherwise, enter the data.\n");
-			scanf("%s,", newEntry.address.poBoxOrApartmentNumber);
-			fprintf(file, "%s", newEntry.address.poBoxOrApartmentNumber);
-			printf("City or town:\n");
-			scanf("%s,", newEntry.address.city);
-			fprintf(file, "%s", newEntry.address.city);
+			scanf("%s", newEntry.address.postfix);
+			fprintf(file, "%s,", newEntry.address.postfix);
+			printf("Enter a space and press enter if there is no apartment number. Otherwise, enter the data.\n");
+			scanf("%s", newEntry.address.apartmentNumber);
+			fprintf(file, "Apt. %s,", newEntry.address.apartmentNumber);
+			printf("City or town:\n"); // Consider towns that include a space
+			scanf("%s", newEntry.address.city, nl);
+			fprintf(file, "%s,", newEntry.address.city); // Need to consider towns that include a space
 			printf("State:\n");
-			scanf("%s,", newEntry.address.state);
-			fprintf(file, "%s", newEntry.address.state);
+			scanf("%s", newEntry.address.state);
+			fprintf(file, "%s,", newEntry.address.state); // Need to consider states that include a space, or limiting to 2-char abbreviations
 			printf("Postal code:\n");
-			scanf("%s,", newEntry.address.postalCode);
-			fprintf(file, "%s", newEntry.address.postalCode);
+			scanf("%s", newEntry.address.postalCode);
+			fprintf(file, "%s,", newEntry.address.postalCode); // Need to consider postal codes that include spaces
 			printf("Country:\n");
-			scanf("%s,", newEntry.address.country);
-			fprintf(file, "%s", newEntry.address.country);
+			scanf("%s", newEntry.address.country);
+			fprintf(file, "%s\n", newEntry.address.country); // Need to consider requiring abbreviations, or consider how to handle spaces
 			break;
 		default:
 			printf("Phone number:\n");
-			scanf("%s,", newEntry.phone);
-			fprintf(file, "%s", newEntry.phone);
+			scanf("%s", newEntry.phone);
+			fprintf(file, "%s\n", newEntry.phone);
 	}
 	fclose(file);
 }
