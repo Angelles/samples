@@ -4,9 +4,9 @@
 
 // prototypes
 void create(); 
-void read();
-void update(struct Entry);
-void delete(struct Entry);
+// void read();
+// void update(struct Entry);
+// void delete(struct Entry);
 
 // consider using pointers for all attribute arrays
 struct Person {
@@ -62,7 +62,7 @@ void menu(){
 void create(){
 	struct Entry newEntry;
 	FILE* file;
-	file = fopen("phonebook.csv", "w");
+	file = fopen("phonebook.csv", "a"); // append
 	printf("First name:\n"); // consider generating a unique id for each entry to help with reading, updating, and deleting
 	scanf("%s", newEntry.person.firstName);
 	fprintf(file, "%s,", newEntry.person.firstName);
@@ -84,13 +84,13 @@ void create(){
 			scanf("%s", newEntry.email);
 			fprintf(file, "%s\n", newEntry.email);
 			break;
-		case 3: // add writing to file
+		case 3: 
 			printf("Address number:\n");
 			scanf("%d", &(newEntry.address.buildingNumber));
 			fprintf(file, "%d,", newEntry.address.buildingNumber);
 			printf("Street name:\n");
 			scanf("%s", newEntry.address.street);
-			fprintf(file, "%s,", newEntry.address.street); // Need to consider street names that contain spaces
+			fprintf(file, "%s,", newEntry.address.street);
 			printf("Street type (i.e. Road, Avenue, Boulevard...):\n");
 			scanf("%s", newEntry.address.postfix);
 			fprintf(file, "%s,", newEntry.address.postfix);
@@ -98,7 +98,7 @@ void create(){
 			scanf("%s", newEntry.address.apartmentNumber);
 			fprintf(file, "Apt. %s,", newEntry.address.apartmentNumber);
 			printf("City or town:\n"); // Consider towns that include a space
-			scanf("%s", newEntry.address.city, nl);
+			scanf("%s", newEntry.address.city);
 			fprintf(file, "%s,", newEntry.address.city); // Need to consider towns that include a space
 			printf("State:\n");
 			scanf("%s", newEntry.address.state);
