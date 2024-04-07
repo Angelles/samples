@@ -23,7 +23,7 @@ struct Address {
 	char state[20];
 	char postalCode[11]; // includes postal codes (non-US) that include letters
 	char country[60]; 
-};
+}; 
 
 struct Entry {
 	struct Person person;
@@ -31,7 +31,7 @@ struct Entry {
 	char email[320]; // consider required attributes for email
 	char phone[20]; // consider regex for phone number and consider requiring international number format
 
-}; 
+};
 
 void menu(){
 	bool on = true;
@@ -94,7 +94,7 @@ void create(){
 			printf("Street type (i.e. Road, Avenue, Boulevard...):\n");
 			scanf("%s", newEntry.address.postfix);
 			fprintf(file, "%s,", newEntry.address.postfix);
-			printf("Enter a space and press enter if there is no apartment number. Otherwise, enter the data.\n");
+			printf("Enter N/A and press enter if there is no apartment number. Otherwise, enter the data.\n");
 			scanf("%s", newEntry.address.apartmentNumber);
 			fprintf(file, "Apt. %s,", newEntry.address.apartmentNumber);
 			printf("City or town:\n"); // Consider towns that include a space
@@ -118,19 +118,30 @@ void create(){
 	fclose(file);
 }
 // read entry - option 2, then select an option to read
-/* void read(){
+/* void read(FILE* file){
 	// open file
+	file = fopen("phonebook.csv", "r"); // read-only
+	// establish temp file for data
+	char entries[1000];
 	// read and display first and last names from file...and ids?
-	// when the user enters the id for the option, read display the full entry
+	while (!feof(file)){
+		fgets(entries, 1000, file);
+		printf("%s", entries);
+	}	
+	// TO-DO: when the user enters the id for the option, read display the full entry
 	// close file
+	fclose(file);
 	// print menu again, so the user can do more stuff or quit
-}
+	menu();
+}	
 */
-// update entry - option 3, which is option 2 then select an option to update. should include choosing attributes only
-// delete entry - option 4, which is option 2 then select an option to delete
+// TO-DO: update entry - option 3, which is option 2 then select an option to update. should include choosing attributes only
+// TO-DO: delete entry - option 4, which is option 2 then select an option to delete
+
 int main(){
 	menu();
 	return 0;
 
 }
 	
+
