@@ -33,6 +33,16 @@ struct Entry {
 
 };
 
+char *strcat(char *destination, const char *source){
+	int i, j;
+	for(i = 0; destination[i] != '\0'; i++);
+	for(j = 0; source[j] != '\0'; j++){
+		destination[i + j] = source[j];
+	};
+	destination[i + j] = '\0'; // add null char to the end
+	return destination;
+};
+
 void menu(){
 	bool on = true;
 	while (on){
@@ -144,4 +154,3 @@ int main(){
 
 }
 	
-
