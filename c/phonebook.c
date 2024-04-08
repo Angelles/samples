@@ -4,7 +4,7 @@
 
 // prototypes
 void create(); 
-// void read();
+void readFile(FILE*);
 // void update(struct Entry);
 // void delete(struct Entry);
 
@@ -54,9 +54,15 @@ void menu(){
 			case 1:
 				create();
 				break;
-			// case 2:
-				// read();
-				// break;
+			case 2:
+				readFile(FILE* file);
+				break;
+			//case 3:
+				//update();
+				//break;
+			//case 4:
+				//delete();
+				//break;
 			case 0:
 				printf("Goodbye!\n");
 				exit(0);
@@ -127,8 +133,8 @@ void create(){
 	}
 	fclose(file);
 }
-// read entry - option 2, then select an option to read
-/* void read(FILE* file){
+// read entries - option 2, displays all entries
+void readFile(FILE *file){
 	// open file
 	file = fopen("phonebook.csv", "r"); // read-only
 	// establish temp file for data
@@ -138,13 +144,12 @@ void create(){
 		fgets(entries, 1000, file);
 		printf("%s", entries);
 	}	
-	// TO-DO: when the user enters the id for the option, read display the full entry
 	// close file
 	fclose(file);
 	// print menu again, so the user can do more stuff or quit
 	menu();
 }	
-*/
+
 // TO-DO: update entry - option 3, which is option 2 then select an option to update. should include choosing attributes only
 // TO-DO: delete entry - option 4, which is option 2 then select an option to delete
 
