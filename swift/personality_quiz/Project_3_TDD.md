@@ -7,10 +7,10 @@ updateDate: 2024/04/23
 # Personality Quiz Project Technical Design Document
 
 The purpose of this document is to outline the design and workflow for the personality quiz project, a project for the Intro to Swift and App Development course. The personality quiz potential results include the following animals:
-    - cat
-    - dog
-    - rabbit
-    - turtle
+- cat
+- dog
+- rabbit
+- turtle
 
 ## Features
 
